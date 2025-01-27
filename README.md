@@ -1,0 +1,2 @@
+# MagaluCloud
+testando recursos
