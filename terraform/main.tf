@@ -19,24 +19,16 @@ resource "mgc_virtual_machine_instances" "this" {
   machine_type = "BV1-1-40"
   image        = "cloud-rocky-09"
   ssh_key_name = "automation"
-
-  user_data = <<EOF
-  #!/bin/bash
-  curl -fsSL https://get.docker.com | bash
-  EOF
 }
 
-# resource "mgc_network_public_ips" "this" {
-#   description = "test public ip"
-# }
 
 
 resource "mgc_object_storage_buckets" "this" {
-  bucket           = "terraform-bucket"
+  bucket           = "bucket-megaconecta-making"
   bucket_is_prefix = true
   private          = true
 }
 
 output "instance-name" {
-    value = mgc_virtual_machine_instances.this.name
+  value = mgc_virtual_machine_instances.this.name
 }
